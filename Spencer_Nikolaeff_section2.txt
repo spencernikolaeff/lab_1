@@ -1,0 +1,87 @@
+Spencers-MacBook-Air:~ spencernikolaeff$ docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+0e03bdcc26d7: Pull complete 
+Digest: sha256:31b9c7d48790f0d8c50ab433d9c3b7e17666d6993084c002c2ff1ca09b96391d
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+Spencers-MacBook-Air:~ spencernikolaeff$ docker ps -a
+CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
+43bac753b1f0   hello-world   "/hello"   15 seconds ago   Exited (0) 14 seconds ago             boring_matsumoto
+Spencers-MacBook-Air:~ spencernikolaeff$ docker rm 43bac753b1f0
+43bac753b1f0
+Spencers-MacBook-Air:~ spencernikolaeff$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+Spencers-MacBook-Air:~ spencernikolaeff$ docker run --rm hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+Spencers-MacBook-Air:~ spencernikolaeff$ rocker ps -a
+-bash: rocker: command not found
+Spencers-MacBook-Air:~ spencernikolaeff$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+Spencers-MacBook-Air:~ spencernikolaeff$ docker run -it ubuntu bash
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+83ee3a23efb7: Pull complete 
+db98fc6f11f0: Pull complete 
+f611acd52c6c: Pull complete 
+Digest: sha256:703218c0465075f4425e58fac086e09e1de5c340b12976ab9eb8ad26615c3715
+Status: Downloaded newer image for ubuntu:latest
+root@ed77f05b996b:/# exit
+exit
+Spencers-MacBook-Air:~ spencernikolaeff$ docker run -dt ubuntu bash
+54863874762fba579da18596f249616a350f064a8cf16c727b8df35c17568e46
+Spencers-MacBook-Air:~ spencernikolaeff$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS         PORTS     NAMES
+54863874762f   ubuntu    "bash"    5 seconds ago   Up 4 seconds             strange_elion
+Spencers-MacBook-Air:~ spencernikolaeff$ docker rm strange_elion
+Error response from daemon: You cannot remove a running container 54863874762fba579da18596f249616a350f064a8cf16c727b8df35c17568e46. Stop the container before attempting removal or force remove
+Spencers-MacBook-Air:~ spencernikolaeff$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS                      PORTS     NAMES
+54863874762f   ubuntu    "bash"    24 seconds ago   Up 23 seconds                         strange_elion
+ed77f05b996b   ubuntu    "bash"    50 seconds ago   Exited (0) 33 seconds ago             strange_cartwright
+Spencers-MacBook-Air:~ spencernikolaeff$ docker rm -f strange_elion
+strange_elion
+Spencers-MacBook-Air:~ spencernikolaeff$ docker rm -f strange_cartwright
+strange_cartwright
